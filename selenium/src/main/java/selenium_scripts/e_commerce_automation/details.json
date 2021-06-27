@@ -1,0 +1,24 @@
+[
+  {
+    "0": {
+      "email": "ast-lw1@gmail.com",
+      "title": "male",
+      "first name": "ast",
+      "last name": "lw",
+      "password": "12345",
+      "days": "1",
+      "months": "1",
+      "years": "1978",
+      "company": "abcxyz",
+      "address": "abcxyz",
+      "city": "abc",
+      "id_state": "9",
+      "zip/postal code": "56002",
+      "id_country": "21",
+      "additional information": "abcxyz",
+      "home phone": "0000000000",
+      "mobile phone": "0000000000",
+      "assign an address alias for future reference": "abcxyz"
+    }
+  }
+]

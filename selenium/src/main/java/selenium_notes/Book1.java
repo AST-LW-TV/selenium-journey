@@ -68,7 +68,7 @@ public class Book1 {
             //            - html - root node
             //            - title - element node
             //            - id="hello" - attributes and values
-            // -> Atomic Values - Atomic values are nodes with no parents or childrens
+            // -> Atomic Values - Atomic values are nodes with no parents or children
             // -> Parent element
             // -> Child Element
             // -> Siblings - nodes that have same parent
@@ -239,8 +239,13 @@ public class Book1 {
 //            for(WebElement element:elements){
 //                System.out.println(element.getAttribute("id"));
 //            }
-
         }
+    }
+
+    // chapter - 3 - working with elements
+    private class Chapter3{
+
+
 
     }
 
