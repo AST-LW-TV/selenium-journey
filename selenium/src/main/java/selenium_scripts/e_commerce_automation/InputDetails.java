@@ -59,6 +59,49 @@ public class InputDetails {
     private By aliasAddressInputField = By.id("alias");
     private By submitButtonLocator = By.id("submitAccount");
 
+    /**
+     * This method searches the partial key in json file if found returns value
+     * @param stringToGetValue - (String type)
+     * @return value of found key - (String)
+     */
+    private String search(String stringToGetValue) {
+        Set<String> set = getDetails.getKeySet();
+        String partial = stringToGetValue.toLowerCase().substring(0, 4);
+        String value = null;
+        for (String item : set) {
+            if (item.contains(partial)) {
+                value = getDetails.getKey(item);
+                break;
+            }
+        }
+        return value;
+    }
+
+    /**
+     * this method inputs the characters in the input field
+     * @param driver - (WebDriver)
+     * @param locator_1 - (By)
+     * @param locator_2 - (By)
+     */
+    private void inputing(WebDriver driver, By locator_1, By locator_2) {
+        String key = driver.findElement(locator_1).getText();
+        key = search(key);
+        driver.findElement(locator_2).clear();
+        driver.findElement(locator_2).sendKeys(key);
+    }
+
+    /**
+     * this method selects the web elements on the web page
+     * @param driver - (WebDriver)
+     * @param locator - (By)
+     */
+    private void selecting(WebDriver driver, By locator) {
+        String key = driver.findElement(locator).getAttribute("id");
+        key = search(key);
+        Select selecting = new Select(driver.findElement(locator));
+        selecting.selectByValue(key);
+    }
+
     public boolean checkHeader(WebDriver driver, String stringToMatch) {
         return driver.findElement(pageHeadingLocator).getText().equalsIgnoreCase(stringToMatch);
     }
@@ -80,36 +123,6 @@ public class InputDetails {
 
     public void clickRegisterButton(WebDriver driver) {
         driver.findElement(registerButtonLocator).click();
-    }
-
-    private String search(String stringToGetValue) {
-        Set<String> set = getDetails.getKeySet();
-        String partial = stringToGetValue.toLowerCase().substring(0, 4);
-        String value = null;
-        for (String item : set) {
-            if (item.contains(partial)) {
-                value = getDetails.getKey(item);
-                break;
-            }
-        }
-        return value;
-    }
-
-    private void inputing(WebDriver driver, By locator_1, By locator_2) {
-        String key = driver.findElement(locator_1).getText();
-        System.out.println(key);
-        key = search(key);
-        System.out.println(key);
-        driver.findElement(locator_2).clear();
-        driver.findElement(locator_2).sendKeys(key);
-    }
-
-    private void selecting(WebDriver driver, By locator) {
-        String key = driver.findElement(locator).getAttribute("id");
-        key = search(key);
-        System.out.println(key);
-        Select selecting = new Select(driver.findElement(locator));
-        selecting.selectByValue(key);
     }
 
     public void enterCustomerDetails(WebDriver driver) {

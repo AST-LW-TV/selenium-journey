@@ -13,7 +13,6 @@ public class Access {
     By loginLocator=By.className("login");
     By logOutLocator=By.cssSelector(".logout");
 
-
     public void login(WebDriver driver){
         driver.findElement(loginLocator).click();
     }
