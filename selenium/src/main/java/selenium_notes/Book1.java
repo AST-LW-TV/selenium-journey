@@ -245,7 +245,41 @@ public class Book1 {
     // chapter - 3 - working with elements
     private class Chapter3{
 
+        WebDriver driver=new ChromeDriver();
 
+        private void notes(){
+            // clear() - clear the text in text box and text area elements
+
+            // sendKeys(<String>) - enter the text in text box and text area elements
+            // - in sendKeys we can also pass in the other key values other name character values
+            // - eg: sendKeys("Hello"+Keys.TAB) - after passing the string, press TAB key
+            // - we make use of Keys api
+
+            // submit() - submit the form
+            // - this action is applicable only for the web elements under <form></form> tag
+
+            // click() - click the element
+            // - to click on element it has to be visible and should have height and width of greater than 0
+            //   else results in ElementNotVisibleException
+
+            // getText() - gets the text from an web element if present
+            // - gets the visible innerText of the element including sub-elements without any leading or trailing whitespaces
+            // - if the element has child elements, the value of the innerText attribute of the child elements will also be returned along with the parent element
+            // - getText() will not work on hidden or invisible elements
+            //   then we have to use getAttribute("innerText") or getAttribute("textContent")
+            // - innerText attribute will not supported in firefox and textContent attribute will not work in IE
+
+            // getAttribute() - used to get the web elements attribute
+
+            // getCSSValue() - get the values of CSS, returns the value of a specified style attribute
+
+            // to support testing dropdown and list elements with multi-select we can use Select class in selenium
+            // this class provides various methods and properties to interact with dropdowns and lists created using <select> HTML
+
+            // radio elements can be selected and deselected using click() method
+            // we can check if the element is selected or not using isSelected() - returns boolean
+            //
+        }
 
     }
 
