@@ -1,6 +1,7 @@
 package selenium_scripts.e_commerce_automation.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -56,7 +57,7 @@ public class HomePage {
             this.addToCart.click();
             try {
                 this.continueShopping.click();
-            } catch (Exception e) {
+            } catch (ElementNotInteractableException e) {
                 By continueShoppingLocator = By.cssSelector(".icon-chevron-left");
                 WebDriverWait wait = new WebDriverWait(driver, 5);
                 WebElement continueButton = wait.until(ExpectedConditions.elementToBeClickable(continueShoppingLocator));
