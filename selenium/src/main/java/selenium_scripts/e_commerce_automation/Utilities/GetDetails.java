@@ -1,4 +1,4 @@
-package selenium_scripts.e_commerce_automation;
+package selenium_scripts.e_commerce_automation.Utilities;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -21,7 +21,7 @@ public class GetDetails {
     static {
         JSONParser jsonParser = new JSONParser();
         try {
-            FileReader file = new FileReader("./src/main/java/selenium_scripts/e_commerce_automation/details.json");
+            FileReader file = new FileReader("src/main/java/selenium_scripts/e_commerce_automation/Utilities/details.json");
             Object objectArray = jsonParser.parse(file);
             jsonArray = (JSONArray) objectArray;
         } catch (IOException | ParseException error) {
@@ -45,7 +45,7 @@ public class GetDetails {
         return value;
     }
 
-    public Set getKeySet(){
+    public Set getKeySet() {
         return this.jsonInnerObject.keySet();
     }
 
