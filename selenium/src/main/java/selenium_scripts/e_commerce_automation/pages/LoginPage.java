@@ -245,7 +245,6 @@ public class LoginPage {
             this.email.clear();
             this.email.sendKeys(getDetails.getKey("email"));
             this.registerButton.click();
-
         }
 
         public void enterCustomerDetails(WebDriver driver) {
@@ -294,9 +293,10 @@ public class LoginPage {
                     inputDetails.enterCustomerDetails(driver);
                     access.logOut();
                 }
+            }else{
+                // exception handling ...
             }
         }
-        driver.quit();
     }
 
     public void registeredCustomer(WebDriver driver) {

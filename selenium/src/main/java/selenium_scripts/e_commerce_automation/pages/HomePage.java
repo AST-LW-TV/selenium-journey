@@ -1,9 +1,6 @@
 package selenium_scripts.e_commerce_automation.pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.ElementNotInteractableException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -12,11 +9,14 @@ import selenium_scripts.e_commerce_automation.Utilities.PageReference;
 public class HomePage {
 
     public HomePage(WebDriver driver, String typeOfCustomer) {
-        if (typeOfCustomer.equals("notRegistered"))
+        if (typeOfCustomer.equals("notRegistered")){
             this.register(driver);
+//            driver.quit();
+        }
         else {
             this.login(driver);
             this.addItemsToCart(driver);
+//            driver.quit();
         }
     }
 
