@@ -14,7 +14,7 @@ public class Utility {
         (temp ? WebDriverManager.chromedriver() :
                 WebDriverManager.firefoxdriver()).setup();
         WebDriver driver = temp ? new ChromeDriver() : new FirefoxDriver();
-        driver.manage().window().maximize();
+//        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get(url);
         return driver;

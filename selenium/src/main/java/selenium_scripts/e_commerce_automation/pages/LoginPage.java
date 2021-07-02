@@ -1,6 +1,9 @@
 package selenium_scripts.e_commerce_automation.pages;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -9,7 +12,6 @@ import selenium_scripts.e_commerce_automation.Utilities.GetDetails;
 import selenium_scripts.e_commerce_automation.Utilities.PageReference;
 import selenium_scripts.e_commerce_automation.Utilities.ScreenShot;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -227,17 +229,17 @@ public class LoginPage {
             return this.pageHeading.getText().equalsIgnoreCase(stringToMatch);
         }
 
-        public boolean checkHeader(WebDriver driver) {
-            By formLocator = By.id("account-creation_form");
-            WebDriverWait wait = new WebDriverWait(driver, 5);
-            wait.until(ExpectedConditions.visibilityOfElementLocated(formLocator));
-            // here...
-            try{
-                this.pageHeading.getText();
-            }catch(NoSuchElementException e) {
-                ScreenShot.TakeScreenShot(driver, "emailError");
+        public boolean emailError(WebDriver driver) {
+            boolean flag=false;
+            By emailErrorMessage=By.cssSelector("div[id='create_account_error']>ol>li");
+            try {
+                driver.findElement(emailErrorMessage).click();
+                ScreenShot.TakeScreenShot(driver,"emailError");
+                flag=false;
+            }catch (NoSuchElementException e){
+                flag=true;
             }
-            return this.pageHeading.getText().equalsIgnoreCase("create an account");
+            return flag;
         }
 
         public void enterEmailAndSubmit() {
@@ -277,7 +279,7 @@ public class LoginPage {
             inputing(this.homePhone, homePhoneInputField);
             inputing(this.mobilePhone, mobilePhoneInputField);
             inputing(this.aliasAddress, aliasAddressInputField);
-            ScreenShot.TakeScreenShot(driver,"detailsFilled"); // here...
+            ScreenShot.TakeScreenShot(driver,"detailsFilled"); 
             this.submitButton.click();
         }
     }
@@ -288,7 +290,7 @@ public class LoginPage {
         access.login();
         if (inputDetails.checkHeader("authentication")) {
             inputDetails.enterEmailAndSubmit();
-            if (inputDetails.checkHeader(driver)) {
+            if (inputDetails.emailError(driver)) {
                 inputDetails.enterCustomerDetails(driver);
                 access.logOut();
             }
