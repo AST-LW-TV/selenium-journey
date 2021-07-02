@@ -1,15 +1,15 @@
 package selenium_scripts.e_commerce_automation.pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import selenium_scripts.e_commerce_automation.Utilities.GetDetails;
 import selenium_scripts.e_commerce_automation.Utilities.PageReference;
+import selenium_scripts.e_commerce_automation.Utilities.ScreenShot;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -63,9 +63,6 @@ public class LoginPage {
 
         @FindBy(xpath = "//h1[@class='page-heading']")
         WebElement pageHeading;
-
-        @FindBy(id = "create_account_error")
-        WebElement emailErrorMessage;
 
         @FindBy(id = "email_create")
         WebElement email;
@@ -234,11 +231,13 @@ public class LoginPage {
             By formLocator = By.id("account-creation_form");
             WebDriverWait wait = new WebDriverWait(driver, 5);
             wait.until(ExpectedConditions.visibilityOfElementLocated(formLocator));
+            // here...
+            try{
+                this.pageHeading.getText();
+            }catch(NoSuchElementException e) {
+                ScreenShot.TakeScreenShot(driver, "emailError");
+            }
             return this.pageHeading.getText().equalsIgnoreCase("create an account");
-        }
-
-        public boolean emailError() {
-            return this.emailErrorMessage.isDisplayed();
         }
 
         public void enterEmailAndSubmit() {
@@ -278,6 +277,7 @@ public class LoginPage {
             inputing(this.homePhone, homePhoneInputField);
             inputing(this.mobilePhone, mobilePhoneInputField);
             inputing(this.aliasAddress, aliasAddressInputField);
+            ScreenShot.TakeScreenShot(driver,"detailsFilled"); // here...
             this.submitButton.click();
         }
     }
@@ -287,14 +287,10 @@ public class LoginPage {
         InputDetails inputDetails = new InputDetails(driver);
         access.login();
         if (inputDetails.checkHeader("authentication")) {
-            if (!(inputDetails.emailError())) {
-                inputDetails.enterEmailAndSubmit();
-                if (inputDetails.checkHeader(driver)) {
-                    inputDetails.enterCustomerDetails(driver);
-                    access.logOut();
-                }
-            }else{
-                // exception handling ...
+            inputDetails.enterEmailAndSubmit();
+            if (inputDetails.checkHeader(driver)) {
+                inputDetails.enterCustomerDetails(driver);
+                access.logOut();
             }
         }
     }

@@ -9,10 +9,14 @@ import java.io.File;
 import java.io.IOException;
 
 public class ScreenShot {
-
-    public static void TakeScreenShot(WebDriver driver, String fileName) throws IOException {
-        File screenShotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(screenShotFile, new File(Config.getValue("screenShotFilePath")+
-                fileName+".png"));
+    public static void TakeScreenShot(WebDriver driver, String fileName) {
+        try {
+            File screenShotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFile(screenShotFile, new File(Config.getValue("screenShotFilePath") +
+                    fileName + ".png"));
+        } catch (IOException e) {
+            System.out.println("Screenshot error...");
+            System.exit(-1);
+        }
     }
 }

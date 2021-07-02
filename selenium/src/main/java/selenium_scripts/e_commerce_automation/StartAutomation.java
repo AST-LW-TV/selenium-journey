@@ -14,7 +14,6 @@ public class StartAutomation {
     // maximizing the browser window
     // ScreenShot class that takes screenshot and stores in screenshots package
 
-
     public static void main(String args[]) throws IOException {
         String browser = Config.getValue("browser");
         String customerType = Config.getValue("typeOfCustomer");
