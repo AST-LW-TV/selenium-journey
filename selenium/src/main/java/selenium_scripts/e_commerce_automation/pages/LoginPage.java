@@ -279,7 +279,7 @@ public class LoginPage {
             inputing(this.homePhone, homePhoneInputField);
             inputing(this.mobilePhone, mobilePhoneInputField);
             inputing(this.aliasAddress, aliasAddressInputField);
-            ScreenShot.TakeScreenShot(driver,"detailsFilled"); 
+            ScreenShot.TakeScreenShot(driver,"detailsFilled");
             this.submitButton.click();
         }
     }

@@ -13,6 +13,8 @@ public class StartAutomation {
     // Inputs from CLI is eliminated and used config file
     // maximizing the browser window
     // ScreenShot class that takes screenshot and stores in screenshots package
+    // added headless option in this task, in config.properties we have to mention type of mode of operation
+
 
     public static void main(String args[]) throws IOException {
         String browser = Config.getValue("browser");

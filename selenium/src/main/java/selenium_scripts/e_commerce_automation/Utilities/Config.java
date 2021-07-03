@@ -20,8 +20,13 @@ public class Config {
         }
     }
 
-    public static String getValue(String key) throws IOException {
-        prop.load(file);
+    public static String getValue(String key) {
+        try {
+            prop.load(file);
+        } catch (IOException e) {
+            System.out.println("File Error...");
+            System.exit(-1);
+        }
         return prop.getProperty(key);
     }
 }
