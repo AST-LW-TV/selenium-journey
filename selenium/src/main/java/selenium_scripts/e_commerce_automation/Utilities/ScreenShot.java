@@ -9,11 +9,12 @@ import java.io.File;
 import java.io.IOException;
 
 public class ScreenShot {
-    public static void TakeScreenShot(WebDriver driver, String fileName) {
+    public static void TakeScreenShot(WebDriver driver) {
         try {
+            String path = Config.getValue("screenShotFilePath");
+            int count = new File(path).list().length;
             File screenShotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(screenShotFile, new File(Config.getValue("screenShotFilePath") +
-                    fileName + ".png"));
+            FileUtils.copyFile(screenShotFile, new File(path + "screenshot_" + String.valueOf(count + 1) + ".png"));
         } catch (IOException e) {
             System.out.println("Screenshot error...");
             System.exit(-1);

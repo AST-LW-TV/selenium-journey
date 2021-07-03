@@ -5,30 +5,33 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import selenium_scripts.e_commerce_automation.Utilities.PageReference;
 
+/*
+    payment functionality
+ */
 public class CheckOutPage extends PageReference {
-    public CheckOutPage(WebDriver driver){
+    public CheckOutPage(WebDriver driver) {
         super(driver);
     }
 
-    @FindBy(partialLinkText="Cart")
+    @FindBy(partialLinkText = "Cart")
     WebElement cart;
 
-    @FindBy(css=".cart_navigation>a")
+    @FindBy(css = ".cart_navigation>a")
     WebElement proceedToCheckOut;
 
-    @FindBy(id="cgv")
+    @FindBy(id = "cgv")
     WebElement termsOfService;
 
-    @FindBy(css="a[title='Pay by bank wire']")
+    @FindBy(css = "a[title='Pay by bank wire']")
     WebElement paymentMethod;
 
-    @FindBy(css="p#cart_navigation  span")
+    @FindBy(css = "p#cart_navigation  span")
     WebElement confirmPayment;
 
-    @FindBy(name="processAddress")
+    @FindBy(name = "processAddress")
     WebElement processAddress;
 
-    @FindBy(name="processCarrier")
+    @FindBy(name = "processCarrier")
     WebElement processCarrier;
 
     private void cart() {
@@ -59,7 +62,8 @@ public class CheckOutPage extends PageReference {
         this.confirmPayment.click();
     }
 
-    public void pay(){
+    // step by step payment functionality
+    public void pay() {
         this.cart();
         this.proceedToCheckOut();
         this.proceedWithAddress();

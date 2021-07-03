@@ -6,8 +6,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import selenium_scripts.e_commerce_automation.Utilities.PageReference;
 
-public class HomePage {
 
+/*
+    control transfer to LoginPage
+    AddToCart functionality
+ */
+public class HomePage {
     public HomePage(WebDriver driver, String typeOfCustomer) {
         if (typeOfCustomer.equals("notRegistered")){
             this.register(driver);
@@ -56,7 +60,7 @@ public class HomePage {
         public void addToCart() {
             this.addToCart.click();
             try {
-                this.continueShopping.click();
+                this.continueShopping.click(); // statement works in chrome but throws error when executed in firefox
             } catch (ElementNotInteractableException e) {
                 By continueShoppingLocator = By.cssSelector(".icon-chevron-left");
                 WebDriverWait wait = new WebDriverWait(driver, 5);
@@ -66,16 +70,19 @@ public class HomePage {
         }
     }
 
+    // transfer the control to login page - not registered column
     private void register(WebDriver driver) {
         LoginPage loginPage = new LoginPage();
         loginPage.registerCustomer(driver);
     }
 
+    // transfer the control to login page  - registered column
     private void login(WebDriver driver) {
         LoginPage loginPage = new LoginPage();
         loginPage.registeredCustomer(driver);
     }
 
+    // add items to cart functionality
     private void addItemsToCart(WebDriver driver) {
         AddToCart add = new AddToCart(driver);
         add.addToCart(driver, add.womenDressesLink, add.womenDress);

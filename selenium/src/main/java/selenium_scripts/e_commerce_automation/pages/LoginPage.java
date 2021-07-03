@@ -5,9 +5,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import selenium_scripts.e_commerce_automation.Utilities.GetDetails;
 import selenium_scripts.e_commerce_automation.Utilities.PageReference;
 import selenium_scripts.e_commerce_automation.Utilities.ScreenShot;
@@ -17,6 +15,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/*
+    login functionality
+ */
 public class LoginPage {
 
     private class Access extends PageReference {
@@ -230,14 +231,14 @@ public class LoginPage {
         }
 
         public boolean emailError(WebDriver driver) {
-            boolean flag=false;
-            By emailErrorMessage=By.cssSelector("div[id='create_account_error']>ol>li");
+            boolean flag = false;
+            By emailErrorMessage = By.cssSelector("div[id='create_account_error']>ol>li");
             try {
                 driver.findElement(emailErrorMessage).click();
-                ScreenShot.TakeScreenShot(driver,"emailError");
-                flag=false;
-            }catch (NoSuchElementException e){
-                flag=true;
+                ScreenShot.TakeScreenShot(driver);
+                flag = false;
+            } catch (NoSuchElementException e) {
+                flag = true;
             }
             return flag;
         }
@@ -279,11 +280,12 @@ public class LoginPage {
             inputing(this.homePhone, homePhoneInputField);
             inputing(this.mobilePhone, mobilePhoneInputField);
             inputing(this.aliasAddress, aliasAddressInputField);
-            ScreenShot.TakeScreenShot(driver,"detailsFilled");
+            ScreenShot.TakeScreenShot(driver);
             this.submitButton.click();
         }
     }
 
+    // registers the customers first time
     public void registerCustomer(WebDriver driver) {
         Access access = new Access(driver);
         InputDetails inputDetails = new InputDetails(driver);
@@ -297,6 +299,7 @@ public class LoginPage {
         }
     }
 
+    // login with credentials of registered customer
     public void registeredCustomer(WebDriver driver) {
         GetDetails getDetails = new GetDetails(0);
         Access access = new Access(driver);
