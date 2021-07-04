@@ -1,7 +1,7 @@
 <suite name="Automation tests">
     <test nam="Test Folder 1">
         <classes>
-            
+
         </classes>
     </test>
 </suite>

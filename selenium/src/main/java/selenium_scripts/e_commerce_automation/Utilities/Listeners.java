@@ -1,9 +1,6 @@
 package selenium_scripts.e_commerce_automation.Utilities;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.events.WebDriverEventListener;
 
 public class Listeners implements WebDriverEventListener {
@@ -80,7 +77,13 @@ public class Listeners implements WebDriverEventListener {
 
     @Override
     public void beforeClickOn(WebElement webElement, WebDriver webDriver) {
-        ScreenShot.TakeScreenShot(webDriver); // screen shot functionality before click event
+        try{
+            webElement.sendKeys(Keys.DOWN); // move to that element location, so that it is visible
+            String fileName=webElement.getText().trim();
+            ScreenShot.TakeScreenShot(webDriver,fileName); // screen shot functionality before click event
+        }catch(ElementNotInteractableException e){
+            // logger module implementation
+        }
     }
 
     @Override

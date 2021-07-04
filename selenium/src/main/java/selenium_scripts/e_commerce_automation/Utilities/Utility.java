@@ -32,7 +32,7 @@ public class Utility {
         EventFiringWebDriver driver = new EventFiringWebDriver(initialDriver); // catches the event
         driver.register(listener); // register the event
 
-//        driver.manage().window().maximize(); // maximizing the browser
+        driver.manage().window().maximize(); // maximizing the browser
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); // implicit wait for 10 seconds...
         driver.get(url); // fetch the url
         return driver;

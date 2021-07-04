@@ -235,7 +235,7 @@ public class LoginPage {
             By emailErrorMessage = By.cssSelector("div[id='create_account_error']>ol>li");
             try {
                 driver.findElement(emailErrorMessage).click();
-                ScreenShot.TakeScreenShot(driver);
+                ScreenShot.TakeScreenShot(driver,"emailError");
                 flag = false;
             } catch (NoSuchElementException e) {
                 flag = true;
@@ -280,7 +280,6 @@ public class LoginPage {
             inputing(this.homePhone, homePhoneInputField);
             inputing(this.mobilePhone, mobilePhoneInputField);
             inputing(this.aliasAddress, aliasAddressInputField);
-            ScreenShot.TakeScreenShot(driver);
             this.submitButton.click();
         }
     }
