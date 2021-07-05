@@ -228,12 +228,17 @@ public class LoginPage {
             return this.pageHeading.getText().equalsIgnoreCase(stringToMatch);
         }
 
+        /**
+         * this method is used to check whether the email is registered
+         * @param driver
+         * @return flag - boolean
+         */
         public boolean emailError(WebDriver driver) {
             boolean flag = false;
             By emailErrorMessage = By.cssSelector("div[id='create_account_error']>ol>li");
             try {
-                driver.findElement(emailErrorMessage).click();
-                ScreenShot.TakeScreenShot(driver, "emailError");
+                driver.findElement(emailErrorMessage).click();  // there is wait of 10 sec ... to find the element
+                ScreenShot.TakeScreenShot(driver, "emailError"); // take screen shot of the error message
                 flag = false;
             } catch (NoSuchElementException e) {
                 flag = true;
@@ -247,6 +252,7 @@ public class LoginPage {
             this.registerButton.click();
         }
 
+        // customers details entering
         public void enterCustomerDetails(WebDriver driver) {
             Map<String, String> lookUp = new HashMap<>();
             lookUp.put("male", "1");

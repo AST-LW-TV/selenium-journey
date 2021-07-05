@@ -8,7 +8,15 @@ import org.openqa.selenium.WebDriver;
 import java.io.File;
 import java.io.IOException;
 
+/*
+    screen shot functionality
+ */
 public class ScreenShot {
+    /**
+     * this method takes the screenshot and stores in screenshots package
+     * @param driver
+     * @param fileName
+     */
     public static void TakeScreenShot(WebDriver driver, String fileName) {
         try {
             String path = Config.getValue("screenShotFilePath");

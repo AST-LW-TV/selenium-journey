@@ -1,5 +1,5 @@
-<suite name="Suite 2">
-    <test name="Test folder 2">
+<suite name="Automation tests">
+    <test name="Test Folder 2">
         <classes>
             <class name="tests.TestCase3">
                 <parameter name="browser" value="firefox"></parameter>

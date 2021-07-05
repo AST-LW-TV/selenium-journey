@@ -3,7 +3,21 @@ package selenium_scripts.e_commerce_automation.Utilities;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.events.WebDriverEventListener;
 
+// listener functionality
 public class Listeners implements WebDriverEventListener {
+
+    // this listener is called before any click event
+    @Override
+    public void beforeClickOn(WebElement webElement, WebDriver webDriver) {
+        try {
+            webElement.sendKeys(Keys.DOWN); // move to that element location, so that it is visible
+            String fileName = webElement.getText().trim();
+            ScreenShot.TakeScreenShot(webDriver, fileName); // screen shot functionality before click event
+        } catch (ElementNotInteractableException e) {
+            // logger module implementation
+        }
+    }
+
     @Override
     public void beforeAlertAccept(WebDriver webDriver) {
 
@@ -72,18 +86,6 @@ public class Listeners implements WebDriverEventListener {
     @Override
     public void afterFindBy(By by, WebElement webElement, WebDriver webDriver) {
 
-    }
-
-
-    @Override
-    public void beforeClickOn(WebElement webElement, WebDriver webDriver) {
-        try {
-            webElement.sendKeys(Keys.DOWN); // move to that element location, so that it is visible
-            String fileName = webElement.getText().trim();
-            ScreenShot.TakeScreenShot(webDriver, fileName); // screen shot functionality before click event
-        } catch (ElementNotInteractableException e) {
-            // logger module implementation
-        }
     }
 
     @Override

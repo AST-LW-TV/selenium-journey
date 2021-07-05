@@ -62,7 +62,7 @@ public class CheckOutPage extends PageReference {
         this.confirmPayment.click();
     }
 
-    // step by step payment functionality
+    // step by step payment functionality...
     public void pay() {
         this.cart();
         this.proceedToCheckOut();

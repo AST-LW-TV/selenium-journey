@@ -21,6 +21,12 @@ public class Config {
     }
 
     // searches the value from the properties file
+
+    /**
+     * this method gets the key from the properties file
+     * @param key
+     * @return value
+     */
     public static String getValue(String key) {
         try {
             prop.load(file);

@@ -12,6 +12,12 @@ import java.util.concurrent.TimeUnit;
 
 public class Utility {
 
+    /**
+     * this method starts the browser
+     * @param browser - browser name
+     * @param url - unified resource locator
+     * @return driver
+     */
     public static WebDriver startBrowser(String browser, String url) {
         boolean temp = browser.equals("chrome");
         String mode = Config.getValue("mode");

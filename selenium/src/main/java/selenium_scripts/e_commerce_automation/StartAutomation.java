@@ -7,6 +7,12 @@ import selenium_scripts.e_commerce_automation.pages.CheckOutPage;
 import selenium_scripts.e_commerce_automation.pages.HomePage;
 
 public class StartAutomation {
+    /**
+     * this method will start the automation
+     * @param browserValue - browser
+     * @param statusValue - type of customer registered or not registered
+     * @return boolean - true if all the statements executed without any exceptions
+     */
     public static boolean start(String browserValue, String statusValue) {
         boolean flag = false;
         String browser = browserValue; // get the browser value
