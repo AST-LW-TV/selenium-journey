@@ -77,11 +77,11 @@ public class Listeners implements WebDriverEventListener {
 
     @Override
     public void beforeClickOn(WebElement webElement, WebDriver webDriver) {
-        try{
+        try {
             webElement.sendKeys(Keys.DOWN); // move to that element location, so that it is visible
-            String fileName=webElement.getText().trim();
-            ScreenShot.TakeScreenShot(webDriver,fileName); // screen shot functionality before click event
-        }catch(ElementNotInteractableException e){
+            String fileName = webElement.getText().trim();
+            ScreenShot.TakeScreenShot(webDriver, fileName); // screen shot functionality before click event
+        } catch (ElementNotInteractableException e) {
             // logger module implementation
         }
     }

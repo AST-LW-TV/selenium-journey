@@ -21,7 +21,6 @@ import java.util.Set;
 public class LoginPage {
 
     private class Access extends PageReference {
-
         public Access(WebDriver driver) {
             super(driver);
         }
@@ -57,7 +56,6 @@ public class LoginPage {
     }
 
     private class InputDetails extends PageReference {
-
         public InputDetails(WebDriver driver) {
             super(driver);
         }
@@ -235,7 +233,7 @@ public class LoginPage {
             By emailErrorMessage = By.cssSelector("div[id='create_account_error']>ol>li");
             try {
                 driver.findElement(emailErrorMessage).click();
-                ScreenShot.TakeScreenShot(driver,"emailError");
+                ScreenShot.TakeScreenShot(driver, "emailError");
                 flag = false;
             } catch (NoSuchElementException e) {
                 flag = true;

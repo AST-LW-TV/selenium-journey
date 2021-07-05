@@ -13,11 +13,10 @@ import selenium_scripts.e_commerce_automation.Utilities.PageReference;
  */
 public class HomePage {
     public HomePage(WebDriver driver, String typeOfCustomer) {
-        if (typeOfCustomer.equals("notRegistered")){
+        if (typeOfCustomer.equals("notRegistered")) {
             this.register(driver);
 //            driver.quit();
-        }
-        else {
+        } else {
             this.login(driver);
             this.addItemsToCart(driver);
 //            driver.quit();
