@@ -1,7 +1,7 @@
 [
   {
     "0": {
-      "email": "ast-lw7@gmail.com",
+      "email": "ast-lw27@gmail.com",
       "title": "male",
       "first name": "ast",
       "last name": "lw",
@@ -18,7 +18,7 @@
       "additional information": "abcxyz",
       "home phone": "0000000000",
       "mobile phone": "0000000000",
-      "assign an address alias for future reference": "abcxyz"
+      "assignAnAddress": "abcxyz"
     }
   }
 ]

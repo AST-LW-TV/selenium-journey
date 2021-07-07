@@ -1,0 +1,14 @@
+<suite name="Automation tests">
+    <test name="Test Folder 1">
+        <classes>
+            <class name="tests.TestCase1">
+                <parameter name="browser" value="chrome"></parameter>
+                <parameter name="status" value="notRegistered"></parameter>
+            </class>
+            <class name="tests.TestCase2">
+                <parameter name="browser" value="chrome"></parameter>
+                <parameter name="status" value="registered"></parameter>
+            </class>
+        </classes>
+    </test>
+</suite>
